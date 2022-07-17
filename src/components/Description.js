@@ -25,7 +25,7 @@ export default function Description() {
             <Cerchio2/>
         </Container>
 
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: "100px" }}>
             <ContainerOpzioni>
                 <Opzione style={{ fontWeight: CasiStudio ? 'bold' : 'lighter' }} onClick={() => {setCasiStudio(true); setUI(false); setModelli3D(false)} }>Casi studio</Opzione>
                 <Opzione style={{ fontWeight: UI ? 'bold' : 'lighter' }} onClick={() => {setUI(true); setCasiStudio(false); setModelli3D(false)} }>UI ed Ixd</Opzione>
