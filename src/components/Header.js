@@ -4,19 +4,35 @@ import styled from "styled-components"
 export default function Header() {
   return (
     <Navbar>
-        <NavbarElement style={{ fontSize: "30px" }}>R.</NavbarElement>
-        <div style={{ display: "flex" }}>
-            <NavbarElement>Blog</NavbarElement>
-            <NavbarElement>Scarica il mio CV</NavbarElement>
-        </div>
-        <Menu>
-          <NavbarElement>Menu</NavbarElement>
-          <div>
-            <Burger />
-            <Burger style={{ marginTop: '3.5px' }}/>
-            <Burger style={{ marginTop: '4px' }}/>
+      { window.innerWidth > 500 ? 
+        <>
+          <NavbarElement style={{ fontSize: "30px" }}>R.</NavbarElement>
+          <div style={{ display: "flex" }}>
+              <NavbarElement>Blog</NavbarElement>
+              <NavbarElement>Scarica il mio CV</NavbarElement>
           </div>
-        </Menu>
+          <Menu>
+            <NavbarElement>Menu</NavbarElement>
+            <div>
+              <Burger />
+              <Burger style={{ marginTop: '3.5px' }}/>
+              <Burger style={{ marginTop: '4px' }}/>
+            </div>
+          </Menu>
+        </>
+        :
+        <>
+          <NavbarElement style={{ fontSize: "30px" }}>R.</NavbarElement>
+          <Menu>
+            <NavbarElement>Menu</NavbarElement>
+            <div>
+              <Burger />
+              <Burger style={{ marginTop: '3.5px' }}/>
+              <Burger style={{ marginTop: '4px' }}/>
+            </div>
+          </Menu>
+        </>
+      }
     </Navbar>
   )
 }

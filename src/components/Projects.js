@@ -39,5 +39,9 @@ const Image = styled.img`
 
     @media (max-width: 800px) {
         width: 25rem;
+    };
+
+    @media (max-width: 500px) {
+        width: 20rem;
     }
 `

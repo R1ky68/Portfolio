@@ -3,7 +3,7 @@ import styled, { keyframes, css } from 'styled-components'
 
 export default function Description() {
 
-    const [CasiStudio, setCasiStudio] = useState(false)
+    const [CasiStudio, setCasiStudio] = useState(true)
     const [UI, setUI] = useState(false)
     const [Modelli3D, setModelli3D] = useState(false)
 
@@ -13,9 +13,9 @@ export default function Description() {
             <Presentazione>
                 <div style={{ display: "flex" }}>
                     <Linea />
-                    <p>Ciao! Sono Riccardo Ionut Racos.</p>
+                    <Saluto>Ciao! Sono Riccardo Ionut Racos.</Saluto>
                 </div>
-                    <h1 style={{ fontSize: '90px' }}>Un genio.</h1>
+                    <Titolo>Un genio.</Titolo>
             </Presentazione>
             <div>
                 <Linea />
@@ -41,12 +41,16 @@ export default function Description() {
 const Container = styled.div`
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-evenly;
     margin-top: 5rem;
+
+    @media (max-width: 1000px) {
+        flex-direction: column;
+    }
 `;
 
 const Presentazione = styled.div`
-    margin: 5rem 10rem;
+
 `
 
 const Linea = styled.div`
@@ -54,14 +58,36 @@ const Linea = styled.div`
     height: 3px;
     background-color: black;
     margin: auto 10px auto 0px;
+
+    @media (max-width: 500px) {
+        display: none;
+    }
+`
+
+const Saluto = styled.p`
+    @media (max-width: 500px) {
+        font-size: 14px;
+    }
+`
+
+const Titolo = styled.h1`
+    font-size: 90px;
+
+    @media (max-width: 500px) {
+        font-size: 60px;
+    }
 `
 
 const Descrizione = styled.p`
+    margin-top: 20px;
     max-width: 25rem;
-    margin-right: 10rem;
-    margin-top: 15px;
     font-family: 'Manrope', sans-serif;
     font-size: 20px;
+
+    @media (max-width: 500px) {
+        font-size: 18px;
+        text-align: center;
+    }
 `
 
 const Cerchio1Animation = keyframes`
@@ -92,6 +118,11 @@ const Cerchio = css`
     animation-duration: 2.7s;
     animation-iteration-count: infinite;
     animation-timing-function: ease;
+
+    @media (max-width: 500px) {
+        display: none;
+    }
+
 `
 
 const Cerchio1 = styled.div`
@@ -109,21 +140,22 @@ const Cerchio2 = styled.div`
 `
 
 const ContainerOpzioni = styled.div`
+    width: 100%;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
     margin-top: 5rem;
 `
 
 const Opzione = styled.a`
-    margin: 1rem 5rem;
     font-family: 'Manrope', sans-serif;
     font-weight: lighter;
     cursor: pointer;
 `
 
 const LineaOpzione = styled.div`
-    width: 700px;
+    margin: 10px;
+    width: 50rem;
     height: 0.5px;
     background-color: black;
 `
