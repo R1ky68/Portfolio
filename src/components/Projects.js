@@ -13,17 +13,31 @@ export default function Projects() {
 }
 
 const Container = styled.div`
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    gap: 20px;
+    grid-template-columns: auto auto;
+    justify-content: space-evenly;
+
+    @media (max-width: 800px) {
+        grid-template-columns: auto;
+    }
 
 `
 
 const Card = (props) => (
-    <div style={{ flex: '50%', textAlign: 'center', margin: '2rem auto' }}>
-        <img src={props.img} style={{ width: '500px', height: '600px', border: '10px solid white' }} />
-        <div style={{ display: 'flex', justifyContent: 'space-around' }}>
-            <h1 style={{ fontWeight: '600', fontSize: '24px' }}>{props.title}</h1>
-            <p style={{ fontWeight: '100', padding: '5px 10px 3.5px 10px', border: '1px solid black', borderRadius: '20px' }}>{props.type}</p>
+    <div style={{ marginTop: "40px" }}>
+        <Image src={props.img} />
+        <div>
+            <h1>{props.title}</h1>
+            <p>{props.type}</p>
         </div>
     </div>
 )
+
+const Image = styled.img`
+    width: 20rem;
+
+    @media (max-width: 800px) {
+        width: 25rem;
+    }
+`
