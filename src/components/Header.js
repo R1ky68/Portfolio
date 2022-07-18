@@ -1,7 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from "styled-components"
 
 export default function Header() {
+
+  const [show_menu, setShowMenu] = useState(false)
+
   return (
     <Navbar>
       { window.innerWidth > 500 ? 
@@ -11,7 +14,7 @@ export default function Header() {
               <NavbarElement>Blog</NavbarElement>
               <NavbarElement>Scarica il mio CV</NavbarElement>
           </div>
-          <Menu>
+          <Menu onClick={() => { setShowMenu(!show_menu); console.log("cliccato") }}>
             <NavbarElement>Menu</NavbarElement>
             <div>
               <Burger />
@@ -33,6 +36,8 @@ export default function Header() {
           </Menu>
         </>
       }
+      <ToggleMenu style={{ display: show_menu ? 'block' : 'none' }}>
+      </ToggleMenu>
     </Navbar>
   )
 }
@@ -62,4 +67,13 @@ const Burger = styled.div`
   width: 20px;
   height: 3px;
   background-color: black;
+`
+
+const ToggleMenu = styled.div`
+  position: absolute;
+  background-color: black;
+  opacity: 10%;
+  width: 100%;
+  height: 50px;
+  margin-top: 7.3rem;
 `

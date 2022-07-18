@@ -33,7 +33,7 @@ export default function Description() {
             </ContainerOpzioni>
             <LineaOpzione />
         </div>
-        <span style={{ position: 'relative', margin: '60px 50%' }} class="material-symbols-outlined">expand_more</span>
+        <span style={{ position: 'relative', margin: '60px 50%' }} className="material-symbols-outlined">expand_more</span>
     </>
   )
 }
