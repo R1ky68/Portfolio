@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import styled from "styled-components"
+import pdf from '../documents/curriculum_vitae.pdf'
 
 export default function Header() {
 
@@ -12,7 +13,7 @@ export default function Header() {
           <NavbarElement style={{ fontSize: "30px" }}>R.</NavbarElement>
           <div style={{ display: "flex" }}>
               <NavbarElement>Blog</NavbarElement>
-              <NavbarElement>Scarica il mio CV</NavbarElement>
+              <a style={{ textDecoration: 'none' }} href={pdf}><NavbarElement>Scarica il mio CV</NavbarElement></a>
           </div>
           <Menu onClick={() => { setShowMenu(!show_menu); console.log("cliccato") }}>
             <NavbarElement>Menu</NavbarElement>

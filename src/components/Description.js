@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import styled, { keyframes, css } from 'styled-components'
-import Typewriter from 'typewriter-effect';
 
 export default function Description() {
 
