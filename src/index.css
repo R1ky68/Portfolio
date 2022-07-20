@@ -5,3 +5,11 @@
   font-size: 18px;
   overflow-x: hidden;
 }
+
+.Typewriter__wrapper {
+  font-size: 90px;
+}
+
+.Typewriter__cursor {
+  height: 100px;
+}

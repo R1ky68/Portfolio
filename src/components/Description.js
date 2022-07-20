@@ -1,11 +1,40 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styled, { keyframes, css } from 'styled-components'
+import Typewriter from 'typewriter-effect';
 
 export default function Description() {
 
     const [CasiStudio, setCasiStudio] = useState(true)
     const [UI, setUI] = useState(false)
     const [Modelli3D, setModelli3D] = useState(false)
+
+    const TypeWriter = ({ contenuto, velocità }) => {
+        const [contenutoMostrato, setContenutoMostrato] = useState("");
+        const [index, setIndex] = useState(0);
+      
+        useEffect(() => {
+          /*Crea un nuovo setInterval e salva il suo ID*/
+          const animKey = setInterval(() => {
+            setIndex((index) => {
+              /*Questa funzione imposterà l'index a index+1 se ci sarà altro contenuto altrimenti distruggerà l'animazione*/
+            
+                if (index >= contenuto.length - 1) {
+                    clearInterval(animKey);
+                    return index;
+                }
+                return index + 1;
+            });
+          }, velocità);
+        }, []);
+      
+        useEffect(() => {
+          setContenutoMostrato((contenutoMostrato) => contenutoMostrato + contenuto[index]) 
+        }, [index])
+      
+        return <Titolo>{contenutoMostrato}</Titolo>;
+    };
+
+    const titolo = `Un developer`;
 
   return (
     <>
@@ -15,7 +44,9 @@ export default function Description() {
                     <Linea />
                     <Saluto>Ciao! Sono Riccardo Ionut Racos.</Saluto>
                 </div>
-                    <Titolo>Un genio.</Titolo>
+                <div style={{ display: 'flex', alignItems: 'center' }}>
+                    <TypeWriter contenuto={titolo} velocità={100} />
+                </div>
             </Presentazione>
             <div>
                 <Linea />
@@ -122,7 +153,6 @@ const Cerchio = css`
     @media (max-width: 500px) {
         display: none;
     }
-
 `
 
 const Cerchio1 = styled.div`
@@ -159,3 +189,7 @@ const LineaOpzione = styled.div`
     height: 0.5px;
     background-color: black;
 `
+
+const LineaCarattere = (props) => (
+    <div style={{  opacity: props.show ? '100%' : '0%', height: '4rem', width: '2px', background: 'black', margin: '1rem' }}></div>
+)
